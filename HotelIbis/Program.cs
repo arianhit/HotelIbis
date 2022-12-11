@@ -24,6 +24,7 @@ class Program
 
                 Console.WriteLine("\n\nPlease log in to your account:");
 
+                //Get the current staff from login Menu
                 Staff loggedInUser = m.logIn();
                 string userFullname = loggedInUser.GetStaffFirstName() + loggedInUser.GetStaffLastName();
                 
@@ -31,28 +32,30 @@ class Program
                 {
                     Console.WriteLine("Welcome to your user menu " + loggedInUser.GetStaffFirstName() + "\n" +
                         "For using the menu please enter the number of the option (1 2 3 ..) \n\n");
+                    //stop the loop if user entered 0 on menu
                     while (m.stop == 0)
                     {
-                        switch (loggedInUser.GetStaffRole())
+                        switch (loggedInUser.GetStaffRole().ToLower())
                         {
-                            case "Reception":
+                            case "reception":
                                 
                                 
                                 m.receptionMenu();
                                 break;
-                            case "Team Leader":
+                            case "teamleader":
 
                                 
-                                m.teamLeader();
+                                m.teamLeaderMenu();
 
                                 break;
-                            case "General Manager":
+                            case "generalmanager":
                                 
 
                                 m.generalManager();
                                 break;
                             default:
                                 o.outPutError("Invalid User please login again!");
+                                m.stop=0;
                                 break;
                         }
                     }
@@ -62,8 +65,11 @@ class Program
 
             }
             else if (args[0] == "-v") { Console.WriteLine("Verssion 0.0.01"); }
+            else if (args[0] == "-help") { Console.WriteLine("You can see the version by entering -v and if you want to use software just enter 0"); }
+
             else
             {
+                //to make the text in yellow
                 o.makeItColor(ConsoleColor.Yellow, "Please Enter the correct input such as (-v , -help , ..");
             }
         }

@@ -10,16 +10,17 @@ namespace Ibis_Hotel
 {
     public class Guest
     {
-        private int guestID;
-        private string guestFirstName;
-        private string guestLastName;
-        private DateTime guestCheckInDate;
-        private DateTime guestCheckOutDate;
-        private int guestsNumber;
-        private string guestPaymentStatus;
-        private int guestPhoneNum;
+        //all variables protected and not accesable
+        protected int guestID;
+        protected string guestFirstName;
+        protected string guestLastName;
+        protected DateTime guestCheckInDate;
+        protected DateTime guestCheckOutDate;
+        protected int guestsNumber;
+        protected string guestPaymentStatus;
+        protected int guestPhoneNum;
         
-
+        //constructure
         public Guest(int guestID, string guestFirstName, string guestLastName, DateTime guestCheckInDate, DateTime guestCheckOutDate, int guestsNumber, string guestPaymentStatus, int guestPhoneNum)
         {
             this.guestID = guestID;
@@ -43,8 +44,8 @@ namespace Ibis_Hotel
         {
 
         }
-        
 
+        //get each variable if needed
         public int GetGuestId() { return guestID; }
         public string GetGuestFirstName() { return guestFirstName; }
         public string GetGuestLastName() { return guestLastName; }
@@ -54,16 +55,5 @@ namespace Ibis_Hotel
         public string GetGuestPaymentStatus() { return guestPaymentStatus; }
         public int GetGuestPhoneNum() { return guestPhoneNum; }
 
-        public string GetGuestInString()
-        {
-            string guestInString;
-
-            guestInString = "" + "\t" +this.guestID.ToString() + "\t" + this.guestFirstName + "\t" + this.guestLastName + "\t" + this.guestCheckInDate.ToString() + "\t" + guestCheckOutDate.ToString()
-                + "\t" + this.guestsNumber.ToString() + "\t" + this.guestPaymentStatus + "\t" + guestPhoneNum.ToString()+ "" ;
-
-
-            return guestInString ;
-        }
-        
     }
 }
